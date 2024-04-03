@@ -6,7 +6,7 @@ describe("Customer address changed event tests", () => {
     it("Should dispatch event when customer address is changed", () => {
         const eventDispatcher = new EventDispatcher();
         const eventHandler = new SendConsoleLogWhenAddressChangesHandler();
-        
+
         const spyEventHandler = jest.spyOn(eventHandler, "handle");
 
         eventDispatcher.register("CustomerAddressChangedEvent", eventHandler);
@@ -25,7 +25,7 @@ describe("Customer address changed event tests", () => {
         });
 
         eventDispatcher.notify(customerAddressChangedEvent);
-        
+
         expect(spyEventHandler).toHaveBeenCalled();
     })
 })

@@ -27,13 +27,13 @@ export default class Order {
   }
 
   validate(): boolean {
-    if (this._id.length == 0) {
+    if (this._id.length === 0) {
       throw new Error("Id is required");
     }
-    if (this._customerID.length == 0) {
+    if (this._customerID.length === 0) {
       throw new Error("CustomerId is required");
     }
-    if (this._items.length == 0) {
+    if (this._items.length === 0) {
       throw new Error("Items are required");
     }
     if (this._items.some(item => item.quantity <= 0)) {

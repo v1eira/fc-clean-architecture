@@ -76,7 +76,7 @@ export default class CustomerRepository implements CustomerRepositoryInterface {
     const customerModels = await CustomerModel.findAll();
 
     return customerModels.map(customerModel => {
-      let customer = new Customer(
+      const customer = new Customer(
         customerModel.id,
         customerModel.name,
       );
@@ -97,5 +97,5 @@ export default class CustomerRepository implements CustomerRepositoryInterface {
       return customer
     });
   }
-  
+
 }

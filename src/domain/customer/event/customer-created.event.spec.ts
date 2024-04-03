@@ -8,7 +8,7 @@ describe("Customer created event tests", () => {
         const eventDispatcher = new EventDispatcher();
         const eventHandler1 = new SendConsoleLog1Handler();
         const eventHandler2 = new SendConsoleLog2Handler();
-        
+
         const spyEventHandler1 = jest.spyOn(eventHandler1, "handle");
         const spyEventHandler2 = jest.spyOn(eventHandler2, "handle");
 
@@ -26,7 +26,7 @@ describe("Customer created event tests", () => {
         });
 
         eventDispatcher.notify(customerCreatedEvent);
-        
+
         expect(spyEventHandler1).toHaveBeenCalled();
         expect(spyEventHandler2).toHaveBeenCalled();
     })

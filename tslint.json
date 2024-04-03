@@ -1,9 +1,24 @@
 {
-    "defaultSeverity": "error",
-    "extends": [
-        "tslint:recommended"
-    ],
-    "jsRules": {},
-    "rules": {},
-    "rulesDirectory": []
+  "defaultSeverity": "error",
+  "extends": [
+      "tslint:recommended"
+  ],
+  "jsRules": {},
+  "rules": {
+    "indent": [true, "spaces", 2],
+    "no-console": [false],
+    "no-string-literal": [false],
+    "no-shadowed-variable": [false],
+    "variable-name": {
+      "options": [
+        "ban",
+        "check-format",
+        "allow-leading-underscore",
+        "allow-pascal-case",
+        "allow-trailing-underscore",
+        "allow-snake-case"
+      ]
+    }
+  },
+  "rulesDirectory": []
 }

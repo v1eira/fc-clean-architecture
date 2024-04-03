@@ -29,13 +29,13 @@ export default class OrderRepository implements OrderRepositoryInterface {
 
   async update(entity: Order): Promise<void> {
     const sequelize = OrderModel.sequelize;
-    
+
     await sequelize.transaction(async (t) => {
       await OrderItemModel.destroy({
         where: { order_id: entity.id },
         transaction: t,
       });
-      
+
       const items = entity.items.map((item) => ({
         id: item.id,
         name: item.name,
@@ -46,7 +46,7 @@ export default class OrderRepository implements OrderRepositoryInterface {
       }));
       await OrderItemModel.bulkCreate(items,
         { transaction: t });
-      
+
       await OrderModel.update(
         { total: entity.total() },
         { where: { id: entity.id }, transaction: t }
@@ -85,5 +85,5 @@ export default class OrderRepository implements OrderRepositoryInterface {
       ))
     ));
   }
-  
+
 }

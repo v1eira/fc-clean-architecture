@@ -36,7 +36,7 @@ describe("Domain events tests", () => {
         expect(eventDispatcher.getEventHandlers["ProductCreatedEvent"][0]).toMatchObject(eventHandler);
 
         eventDispatcher.unregisterAll();
-        
+
         expect(eventDispatcher.getEventHandlers["ProductCreatedEvent"]).toBeUndefined();
     });
 
@@ -57,7 +57,7 @@ describe("Domain events tests", () => {
 
         // Quando o notify for executado o SendEmailWhenProductIsCreatedHandler.handle() deve ser chamado
         eventDispatcher.notify(productCreatedEvent);
-        
+
         expect(spyEventHandler).toHaveBeenCalled();
     });
 });

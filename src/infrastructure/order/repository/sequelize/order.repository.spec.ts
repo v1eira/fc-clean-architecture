@@ -56,7 +56,7 @@ describe("Order repository test", () => {
       product.id,
       2
     );
-    
+
     const order = new Order("123", customer.id, [orderItem]);
     const orderRepository = new OrderRepository();
     await orderRepository.create(order);
@@ -101,7 +101,7 @@ describe("Order repository test", () => {
       product.id,
       2
     );
-    
+
     let order = new Order("123", customer.id, [orderItem]);
     const orderRepository = new OrderRepository();
     await orderRepository.create(order);
@@ -189,7 +189,7 @@ describe("Order repository test", () => {
       product.id,
       2
     );
-    
+
     const order = new Order("123", customer.id, [orderItem]);
     const orderRepository = new OrderRepository();
     await orderRepository.create(order);
@@ -225,7 +225,7 @@ describe("Order repository test", () => {
       product.id,
       4
     );
-    
+
     const order = new Order("123", customer.id, [orderItem]);
     const order2 = new Order("456", customer.id, [orderItem2]);
     const orderRepository = new OrderRepository();

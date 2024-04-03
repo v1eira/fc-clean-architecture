@@ -37,5 +37,5 @@ export default class ProductRepository implements ProductRepositoryInterface {
 
     return productModels.map(productModel => new Product(productModel.id, productModel.name, productModel.price));
   }
-  
+
 }
