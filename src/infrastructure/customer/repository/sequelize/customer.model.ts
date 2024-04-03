@@ -1,34 +1,32 @@
-import { Column, Model, PrimaryKey, Table } from "sequelize-typescript";
+import { Column, Model, PrimaryKey, Table } from 'sequelize-typescript'
 
 @Table({
   tableName: 'customers',
   timestamps: false,
 })
 export default class CustomerModel extends Model {
-
   @PrimaryKey
   @Column
-  declare id: string;
+  declare id: string
 
   @Column({ allowNull: false })
-  declare name: string;
+  declare name: string
 
   @Column({ allowNull: false })
-  declare street: string;
+  declare street: string
 
   @Column({ allowNull: false })
-  declare number: number;
+  declare number: number
 
   @Column({ allowNull: false })
-  declare zipcode: string;
+  declare zipcode: string
 
   @Column({ allowNull: false })
-  declare city: string;
+  declare city: string
 
   @Column({ allowNull: false })
-  declare active: boolean;
+  declare active: boolean
 
   @Column({ allowNull: false })
-  declare rewardPoints: number;
-
+  declare rewardPoints: number
 }
