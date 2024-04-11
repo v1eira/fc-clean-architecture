@@ -40,7 +40,7 @@ describe('E2E test for customer', () => {
   })
 
   it('should list all customers', async () => {
-    const createCustomerResponse1 = await request(app)
+    await request(app)
       .post('/customer')
       .send({
         name: 'John',
@@ -52,7 +52,7 @@ describe('E2E test for customer', () => {
         },
       })
 
-    const createCustomerResponse2 = await request(app)
+    await request(app)
       .post('/customer')
       .send({
         name: 'Jane',
