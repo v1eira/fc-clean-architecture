@@ -4,14 +4,20 @@ import Customer from './customer'
 describe('Customer unit tests', () => {
   it('should throw error when id is empty', () => {
     expect(() => {
-      const customer = new Customer('', 'John')
-    }).toThrowError('Id is required')
+      new Customer('', 'John')
+    }).toThrow('customer: Id is required')
   })
 
   it('should throw error when name is empty', () => {
     expect(() => {
-      const customer = new Customer('123', '')
-    }).toThrowError('Name is required')
+      new Customer('123', '')
+    }).toThrow('customer: Name is required')
+  })
+
+  it('should throw error when id and name are empty', () => {
+    expect(() => {
+      new Customer('', '')
+    }).toThrow('customer: Id is required,customer: Name is required')
   })
 
   it('should change name', () => {
@@ -39,7 +45,7 @@ describe('Customer unit tests', () => {
     expect(() => {
       const customer = new Customer('123', 'John')
       customer.activate()
-    }).toThrowError('Address is mandatory to activate a customer')
+    }).toThrow('Address is mandatory to activate a customer')
   })
 
   it('should add new points', () => {
