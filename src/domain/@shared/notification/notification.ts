@@ -1,3 +1,5 @@
+import NotificationError from "./notification.error"
+
 export type NotificationErrorProps = {
   message: string
   context: string
@@ -25,5 +27,11 @@ export default class Notification {
 
   getErrors(): NotificationErrorProps[] {
     return this.errors
+  }
+
+  notify(): void {
+    if (this.hasErrors()) {
+      throw new NotificationError(this.errors)
+    }
   }
 }

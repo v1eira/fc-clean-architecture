@@ -1,7 +1,7 @@
 import Product from '../../../domain/product/entity/product'
 import UpdateProductUseCase from './update.product.usecase'
 
-const product = new Product('123', 'Product 1 Updated', 20)
+let product = new Product('123', 'Product 1 Updated', 20)
 
 const MockRepository = () => {
   return {
@@ -13,6 +13,9 @@ const MockRepository = () => {
 }
 
 describe('Unit test update product use case', () => {
+  beforeEach(() => {
+    product = new Product('123', 'Product 1 Updated', 20)
+  })
   it('should update a product', async () => {
     const productRepository = MockRepository()
     const updateProductUseCase = new UpdateProductUseCase(productRepository)
@@ -37,7 +40,7 @@ describe('Unit test update product use case', () => {
       price: 20,
     }
     await expect(updateProductUseCase.execute(input)).rejects.toThrow(
-      'Name is required',
+      'product: Name is required',
     )
   })
 
@@ -49,8 +52,9 @@ describe('Unit test update product use case', () => {
       name: 'Product 1 Updated',
       price: -1,
     }
+    console.log(product)
     await expect(updateProductUseCase.execute(input)).rejects.toThrow(
-      'Price must be greater than zero',
+      'product: Price must be greater than zero',
     )
   })
 
