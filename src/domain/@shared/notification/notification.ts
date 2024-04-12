@@ -1,4 +1,4 @@
-import NotificationError from "./notification.error"
+import NotificationError from './notification.error'
 
 export type NotificationErrorProps = {
   message: string
